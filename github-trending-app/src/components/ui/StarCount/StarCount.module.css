@@ -1,0 +1,23 @@
+.starCount {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 16px;
+  font-size: 0.75rem;
+  border: 1px solid #1976d2;
+  color: #1976d2;
+  background-color: transparent;
+  height: 24px;
+}
+
+.starIcon {
+  color: #f9a825; /* Gold color for star */
+  font-size: 0.875rem;
+  margin-right: 2px;
+}
+
+.label {
+  line-height: 1;
+  font-weight: 500;
+}

@@ -1,0 +1,22 @@
+.languageChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 16px;
+  font-size: 0.75rem;
+  border: 1px solid rgba(0, 0, 0, 0.23);
+  color: rgba(0, 0, 0, 0.87);
+  background-color: transparent;
+  height: 24px;
+  margin-right: 8px;
+}
+
+.codeIcon {
+  font-size: 0.875rem;
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.label {
+  line-height: 1;
+}
