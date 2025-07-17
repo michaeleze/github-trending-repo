@@ -103,11 +103,11 @@ This project uses path aliases to simplify imports. Instead of using relative pa
 ```typescript
 // Before: Using relative paths
 import { Repository } from '../types/repository.type';
-import { useRepositories } from '../hooks/useRepositories';
+import { useFetchRepositories } from '../hooks/useFetchRepositories';
 
 // After: Using path aliases
 import { Repository } from '@/types/repository.type';
-import { useRepositories } from '@/hooks/useRepositories';
+import { useFetchRepositories } from '@/hooks/useFetchRepositories';
 ```
 
 Available alias:
@@ -123,7 +123,7 @@ This project follows these principles:
 - **Component-Based Architecture**: UI is broken down into reusable, composable components
 - **Single Responsibility**: Each component and service has a single, well-defined purpose
 - **DRY (Don't Repeat Yourself)**: Common functionality is extracted into reusable components, hooks, and services
-- **Separation of Concerns**: 
+- **Separation of Concerns**:
   - Data fetching logic is separated from UI components
   - API calls are made in hooks and services
   - Components receive data via props and context

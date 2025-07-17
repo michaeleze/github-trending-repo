@@ -4,13 +4,13 @@ import type {
   RepositoryActions
 } from '@/types';
 import {
-  useFetchRepositories,
   useStarredRepositories,
 } from '@/hooks';
 import { RepositoriesContext } from './index';
 import { useState, useEffect } from 'react';
 import type { Repository } from '@/types';
 import { toggleRepositoryStar } from '@/utils';
+import { useFetchRepositories } from '@/hooks';
 
 /**
  * Provider component for the Repositories context
