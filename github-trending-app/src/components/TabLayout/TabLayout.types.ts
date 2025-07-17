@@ -12,4 +12,7 @@ export interface TabLayoutProps {
     label: string;
     content: ReactNode;
   }[];
+  onSearch?: (searchTerm: string) => void;
+  onLanguageFilter?: (language: string) => void;
+  availableLanguages?: string[];
 }

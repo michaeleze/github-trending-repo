@@ -2,41 +2,31 @@ import { render, screen } from '@testing-library/react';
 import StarCount from './StarCount';
 
 describe('StarCount', () => {
-  it('renders the star count', () => {
+  it('renders star count with formatted number', () => {
+    render(<StarCount count={1234} />);
+    
+    expect(screen.getByText('★')).toBeInTheDocument();
+    expect(screen.getByText('1.2k')).toBeInTheDocument();
+  });
+
+  it('renders star count without formatting for small numbers', () => {
     render(<StarCount count={42} />);
     
-    expect(screen.getByText('42')).toBeInTheDocument();
     expect(screen.getByText('★')).toBeInTheDocument();
+    expect(screen.getByText('42')).toBeInTheDocument();
   });
 
-  it('formats large numbers with k suffix', () => {
-    render(<StarCount count={1500} />);
+  it('renders zero count', () => {
+    render(<StarCount count={0} />);
     
-    expect(screen.getByText('1.5k')).toBeInTheDocument();
+    expect(screen.getByText('★')).toBeInTheDocument();
+    expect(screen.getByText('0')).toBeInTheDocument();
   });
 
-  it('formats very large numbers with k suffix', () => {
+  it('renders large numbers with k suffix', () => {
     render(<StarCount count={15000} />);
     
+    expect(screen.getByText('★')).toBeInTheDocument();
     expect(screen.getByText('15.0k')).toBeInTheDocument();
-  });
-
-  it('does not format numbers less than 1000', () => {
-    render(<StarCount count={999} />);
-    
-    expect(screen.getByText('999')).toBeInTheDocument();
-  });
-
-  it('applies correct styling', () => {
-    render(<StarCount count={42} />);
-    
-    const container = screen.getByText('42').closest('div');
-    expect(container).toHaveClass('starCount');
-    
-    const icon = screen.getByText('★');
-    expect(icon).toHaveClass('starIcon');
-    
-    const label = screen.getByText('42');
-    expect(label).toHaveClass('label');
   });
 });

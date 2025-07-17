@@ -1,29 +1,27 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useTransition } from 'react';
 import type { Repository } from '@/types';
 import { localStorageService } from '@/services';
 
 /**
- * Custom hook for fetching starred repositories
+ * Custom hook for fetching starred repositories using React 19 patterns
  */
 export const useStarredRepositories = () => {
   const [starredRepositories, setStarredRepositories] = useState<Repository[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [isPending, startTransition] = useTransition();
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    try {
-      setLoading(true);
-      // Get starred repositories from local storage
-      const starredRepos = localStorageService.getStarredRepositories();
-      setStarredRepositories(starredRepos);
-      setError(null);
-    } catch (err) {
-      console.error('Error fetching starred repositories:', err);
-      setError('Failed to fetch starred repositories.');
-    } finally {
-      setLoading(false);
-    }
+    // Use transition for non-blocking state updates
+    startTransition(() => {
+        const starredRepos = localStorageService.getStarredRepositories();
+        setStarredRepositories(starredRepos);
+        setError(null);
+    });
   }, []);
 
-  return { starredRepositories, loading, error };
+  return {
+    starredRepositories,
+    loading: isPending,
+    error
+  };
 };

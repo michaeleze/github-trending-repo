@@ -1,0 +1,128 @@
+.container {
+  border-bottom: 1px solid var(--color-border);
+  transition: background-color var(--transition-fast);
+}
+
+.container:last-child {
+  border-bottom: none;
+}
+
+.container:hover {
+  background-color: var(--color-background-tertiary);
+}
+
+.content {
+  padding: var(--space-xl);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: calc(var(--space-sm) + 4px);
+  gap: var(--space-lg);
+}
+
+.title {
+  margin: 0;
+  font-size: calc(var(--font-size-lg) + 0.25rem);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  line-height: 1.3;
+}
+
+.titleLink {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.titleLink:hover {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.description {
+  margin: 0 0 var(--space-lg) 0;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  line-height: 1.5;
+}
+
+.rating {
+  margin-bottom: var(--space-md);
+}
+
+.stars {
+  display: flex;
+  gap: var(--space-xs);
+}
+
+.star {
+  font-size: var(--font-size-md);
+  transition: color var(--transition-fast);
+}
+
+.starFilled {
+  color: var(--color-warning);
+}
+
+.starEmpty {
+  color: var(--color-border);
+}
+
+.metadata {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.metadataLeft {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.metadataRight {
+  display: flex;
+  align-items: center;
+}
+
+.owner {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+/* Responsive design */
+@media (max-width: 640px) {
+  .content {
+    padding: var(--space-md);
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+  }
+
+  .title {
+    font-size: var(--font-size-lg);
+  }
+
+  .metadata {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+  }
+
+  .metadataLeft {
+    width: 100%;
+  }
+
+  .metadataRight {
+    width: 100%;
+  }
+}

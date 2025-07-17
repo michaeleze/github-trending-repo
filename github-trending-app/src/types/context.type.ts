@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import type { Repository, RepositoriesState, SortKey } from './repository.type';
+import type { RepositoriesState, Repository } from './repository.type';
 
 export interface LoadingState {
   loading: boolean;
@@ -7,8 +7,7 @@ export interface LoadingState {
 };
 
 export interface RepositoryActions {
-  toggleStar: (repository: Repository) => void;
-  sortRepositories: (key: SortKey) => void;
+  toggleStar?: (repository: Repository) => void;
 }
 
 export type RepositoriesContextType = RepositoriesState & LoadingState & RepositoryActions;

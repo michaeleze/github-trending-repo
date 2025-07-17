@@ -2,32 +2,32 @@
   background: none;
   border: none;
   cursor: pointer;
-  padding: 8px;
-  border-radius: 50%;
+  padding: var(--space-sm);
+  border-radius: var(--radius-full);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.2s;
+  transition: background-color var(--transition-fast);
   position: relative;
 }
 
 .starButton:hover {
-  background-color: rgba(25, 118, 210, 0.1);
+  background-color: rgba(var(--color-primary-rgb), 0.1);
 }
 
 .starButton:focus {
   outline: none;
-  box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.3);
+  box-shadow: 0 0 0 2px rgba(var(--color-primary-rgb), 0.3);
 }
 
 .starIcon {
-  color: #f9a825; /* Gold color for filled star */
-  font-size: 1.5rem;
+  color: var(--color-warning); /* Gold color for filled star */
+  font-size: var(--font-size-xl);
 }
 
 .starBorderIcon {
-  color: #1976d2; /* Primary blue color for outline star */
-  font-size: 1.5rem;
+  color: var(--color-primary); /* Primary color for outline star */
+  font-size: var(--font-size-xl);
 }
 
 .tooltip {
@@ -35,17 +35,17 @@
   bottom: 100%;
   left: 50%;
   transform: translateX(-50%);
-  background-color: rgba(97, 97, 97, 0.9);
-  color: white;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 0.75rem;
+  background-color: rgba(var(--color-text-secondary-rgb, 97, 97, 97), 0.9);
+  color: var(--color-background-secondary);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-xs);
   white-space: nowrap;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.2s, visibility 0.2s;
+  transition: opacity var(--transition-fast), visibility var(--transition-fast);
   pointer-events: none;
-  margin-bottom: 4px;
+  margin-bottom: var(--space-xs);
 }
 
 .starButton:hover .tooltip {

@@ -1,7 +1,7 @@
 import styles from './StarButton.module.css';
 
 export interface StarButtonProps {
-  isStarred: boolean;
+  isStarred?: boolean;
   onClick: () => void;
 }
 

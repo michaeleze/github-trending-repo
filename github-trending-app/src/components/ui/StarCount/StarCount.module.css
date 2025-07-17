@@ -1,23 +1,19 @@
 .starCount {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 4px;
-  padding: 4px 8px;
-  border-radius: 16px;
-  font-size: 0.75rem;
-  border: 1px solid #1976d2;
-  color: #1976d2;
-  background-color: transparent;
-  height: 24px;
+  gap: var(--space-xs);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
 }
 
 .starIcon {
-  color: #f9a825; /* Gold color for star */
-  font-size: 0.875rem;
-  margin-right: 2px;
+  color: var(--color-warning);
+  font-size: var(--font-size-md);
 }
 
-.label {
-  line-height: 1;
-  font-weight: 500;
+.count {
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
 }
+
+/* Theme support is now handled by CSS variables */

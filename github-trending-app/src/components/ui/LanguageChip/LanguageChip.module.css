@@ -1,20 +1,20 @@
 .languageChip {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  padding: 4px 8px;
-  border-radius: 16px;
-  font-size: 0.75rem;
-  border: 1px solid rgba(0, 0, 0, 0.23);
-  color: rgba(0, 0, 0, 0.87);
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-primary);
   background-color: transparent;
-  height: 24px;
-  margin-right: 8px;
+  height: calc(var(--space-md) * 3);
+  margin-right: var(--space-sm);
 }
 
 .codeIcon {
-  font-size: 0.875rem;
-  color: rgba(0, 0, 0, 0.54);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
 }
 
 .label {

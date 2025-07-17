@@ -3,10 +3,12 @@ import { localStorageService } from '@/services';
 
 /**
  * Custom hook for toggling star status of a repository
+ * @param updateStarredRepositories - Function to update starred repositories state
+ * @param updateAllRepositories - Function to update all repositories state
  */
 export const useToggleStar = (
-  updateRepositories: (repos: Repository[]) => void,
-  updateStarredRepositories: (repos: Repository[]) => void
+  updateStarredRepositories?: (repos: Repository[]) => void,
+  updateAllRepositories?: (updater: (repos: Repository[]) => Repository[]) => void
 ) => {
   const toggleStar = async (repository: Repository) => {
     try {
@@ -21,18 +23,21 @@ export const useToggleStar = (
         updatedStarredRepos = localStorageService.addStarredRepository(repository);
       }
 
-      // Update the starred repositories state
-      updateStarredRepositories(updatedStarredRepos);
+      // Update the starred repositories state if the function is provided
+      if (updateStarredRepositories) {
+        updateStarredRepositories(updatedStarredRepos);
+      }
 
-      // Update the repositories state with the new star status
-      updateRepositories(currentRepos =>
-        currentRepos.map(repo => {
-          if (repo.id === repository.id) {
-            return { ...repo, isStarred: !repo.isStarred };
-          }
-          return repo;
-        })
-      );
+      // Update the repositories state with the new star status if the function is provided
+      if (updateAllRepositories) {
+        updateAllRepositories(currentRepos =>
+          currentRepos.map(repo =>
+            repo.id === repository.id
+              ? { ...repo, isStarred: !isCurrentlyStarred }
+              : repo
+          )
+        );
+      }
 
       return updatedStarredRepos;
     } catch (error) {
@@ -41,5 +46,5 @@ export const useToggleStar = (
     }
   };
 
-  return toggleStar;
+  return { toggleStar };
 };
