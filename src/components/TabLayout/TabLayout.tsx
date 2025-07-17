@@ -2,6 +2,7 @@ import { useState } from 'react';
 import SearchAndFilter from '../SearchAndFilter';
 import type { TabPanelProps, TabLayoutProps } from './TabLayout.types';
 import styles from './TabLayout.module.css';
+import GitHubIcon from '../../assets/github.svg?react';
 
 const TabPanel = ({ children, value, index, ...other }: TabPanelProps) => {
   return (
@@ -31,6 +32,7 @@ const TabLayout = ({ title, tabs, onSearch, onLanguageFilter, availableLanguages
     <main className={styles.container}>
       <header className={styles.header}>
         <h1 className={styles.title}>
+          <GitHubIcon />
           {title}
         </h1>
       </header>
