@@ -41,9 +41,9 @@ export const RepositoriesProvider = ({ children }: RepositoriesProviderProps) =>
   const error = reposError || starredError ? 'Failed to fetch repositories. Please try again later.' : null;
 
   // Toggle star function
-  const toggleStar = async (repository: Repository) => {
+  const toggleStar = async (toggledRepository: Repository) => {
     await toggleRepositoryStar(
-      repository,
+      toggledRepository,
       setStarredRepositories,
       setAllRepositories
     );

@@ -1,2 +1,2 @@
 export * from './useStarredRepositories';
-export * from './useFetchRepositories';
+export * from './useRepositories';

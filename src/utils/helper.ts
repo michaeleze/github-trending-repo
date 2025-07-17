@@ -63,15 +63,15 @@ export const getFilteredRepositories = (
  * @returns Updated starred repositories array
  */
 export const toggleRepositoryStar = async (
-  repository: Repository,
+  toggledRepository: Repository,
   updateStarredRepositories?: (repos: Repository[]) => void,
   updateAllRepositories?: (updater: (repos: Repository[]) => Repository[]) => void
 ): Promise<Repository[]> => {
-  const isCurrentlyStarred = localStorageService.isRepositoryStarred(repository.id);
-  
+  const isCurrentlyStarred = localStorageService.isRepositoryStarred(toggledRepository.id);
+
   const updatedStarredRepos = isCurrentlyStarred
-    ? localStorageService.removeStarredRepository(repository.id)
-    : localStorageService.addStarredRepository(repository);
+    ? localStorageService.removeStarredRepository(toggledRepository.id)
+    : localStorageService.addStarredRepository(toggledRepository);
 
   // Update starred repositories state
   updateStarredRepositories?.(updatedStarredRepos);
@@ -79,7 +79,7 @@ export const toggleRepositoryStar = async (
   // Update all repositories state with new star status
   updateAllRepositories?.(currentRepos =>
     currentRepos.map(repo =>
-      repo.id === repository.id
+      repo.id === toggledRepository.id
         ? { ...repo, isStarred: !isCurrentlyStarred }
         : repo
     )
