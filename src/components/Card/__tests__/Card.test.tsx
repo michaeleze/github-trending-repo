@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import Card from './Card';
+import Card from '../Card';
 import type { Repository } from '@/types';
 
 // Mock the child components

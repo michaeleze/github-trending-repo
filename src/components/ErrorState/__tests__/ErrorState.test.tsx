@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import ErrorState from './ErrorState';
+import ErrorState from '../ErrorState';
 
 describe('ErrorState', () => {
   it('renders error message', () => {

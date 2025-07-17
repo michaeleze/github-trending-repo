@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import Grid from './Grid';
+import Grid from '../Grid';
 import type { Repository } from '@/types';
 
 // Mock the child components
