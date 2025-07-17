@@ -5,12 +5,12 @@ import styles from './LoadingState.module.css';
  */
 const LoadingState = () => {
   return (
-    <div className={styles.container}>
-      <div className={styles.spinner} />
+    <section className={styles.container} aria-label="Loading state">
+      <div className={styles.spinner} role="progressbar" aria-label="Loading" />
       <h2 className={styles.text}>
         Loading repositories...
       </h2>
-    </div>
+    </section>
   );
 };
 

@@ -7,23 +7,24 @@ export interface ErrorStateProps {
 
 const ErrorState = ({ message, onRetry }: ErrorStateProps) => {
   return (
-    <div className={styles.container}>
-      <div className={styles.icon}>
+    <section className={styles.container} aria-label="Error state" role="alert">
+      <div className={styles.icon} aria-hidden="true">
         ⚠️
       </div>
-      <div className={styles.message}>
+      <p className={styles.message}>
         {message}
-      </div>
+      </p>
 
       {onRetry && (
         <button
           className={styles.button}
           onClick={onRetry}
+          type="button"
         >
-          <span>↻</span> Retry
+          <span aria-hidden="true">↻</span> Retry
         </button>
       )}
-    </div>
+    </section>
   );
 };
 

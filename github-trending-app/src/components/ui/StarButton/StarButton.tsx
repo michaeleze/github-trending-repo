@@ -10,6 +10,7 @@ const StarButton = ({ isStarred, onClick }: StarButtonProps) => {
     <button
       className={styles.starButton}
       onClick={onClick}
+      type="button"
       aria-label={isStarred ? 'unstar' : 'star'}
     >
       <span className={styles.tooltip}>

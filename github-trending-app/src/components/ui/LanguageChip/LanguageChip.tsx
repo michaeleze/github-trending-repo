@@ -6,10 +6,10 @@ interface LanguageChipProps {
 
 const LanguageChip = ({ language }: LanguageChipProps) => {
   return (
-    <div className={styles.languageChip}>
-      <span className={styles.codeIcon}>⌨️</span>
+    <span className={styles.languageChip}>
+      <span className={styles.codeIcon} aria-hidden="true">⌨️</span>
       <span className={styles.label}>{language}</span>
-    </div>
+    </span>
   );
 };
 

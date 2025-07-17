@@ -12,18 +12,18 @@ const Grid = ({
   emptyMessage = 'No repositories found.'
 }: GridProps) => {
   return (
-    <section>
+    <section aria-label="Repository grid">
       {repositories.length > 0 ? (
-        <div className={styles.grid}>
+        <ul className={styles.grid}>
           {repositories.map((repository) => (
-            <div key={repository.id}>
+            <li key={repository.id} className={styles.gridItem}>
               <Card
                 repository={repository}
                 onToggleStar={onToggleStar}
               />
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
       ) : (
         <p className={styles.emptyMessage}>
           {emptyMessage}

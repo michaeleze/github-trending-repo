@@ -7,10 +7,14 @@ import './global.css';
 function App() {
   return (
     <ThemeProvider>
-      <ThemeToggle />
-      <RepositoriesProvider>
-        <RepositoriesPage />
-      </RepositoriesProvider>
+      <div className="app-container">
+        <header className="app-header">
+          <ThemeToggle />
+        </header>
+        <RepositoriesProvider>
+          <RepositoriesPage />
+        </RepositoriesProvider>
+      </div>
     </ThemeProvider>
   );
 }

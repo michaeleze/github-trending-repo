@@ -1,7 +1,8 @@
 .toggleContainer {
-  position: fixed;
-  top: var(--space-md);
-  right: var(--space-md);
+  position: static;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
   z-index: 10;
 }
 

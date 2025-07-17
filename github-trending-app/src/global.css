@@ -86,6 +86,23 @@ p {
   padding: 0 var(--space-md);
 }
 
+/* App Container */
+.app-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* App Header */
+.app-header {
+  display: flex;
+  justify-content: flex-end;
+  padding: var(--space-sm) var(--space-md);
+  background-color: var(--color-background-secondary);
+  border-bottom: 1px solid var(--color-border);
+}
+
 /* Utility classes */
 .text-center {
   text-align: center;

@@ -6,10 +6,11 @@ const ThemeToggle = () => {
   const { theme, toggleTheme } = use(ThemeContext);
 
   return (
-    <div className={styles.toggleContainer}>
+    <div className={styles.toggleContainer} aria-label="Theme toggle">
       <button
         className={styles.toggleButton}
         onClick={toggleTheme}
+        type="button"
         aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
       >
         {theme === 'light' ? (
