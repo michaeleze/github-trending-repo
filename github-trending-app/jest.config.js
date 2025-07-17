@@ -13,8 +13,9 @@ export default {
   ],
   coverageReporters: ['text', 'json', 'html'],
   transform: {
-    '^.+\\.tsx?$': ['ts-jest', {
-      tsconfig: 'tsconfig.json',
+    '^.+\.tsx?$': ['ts-jest', {
+      tsconfig: 'tsconfig.app.json',
+      jsx: 'react-jsx',
     }],
   },
 };
