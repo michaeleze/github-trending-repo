@@ -1,4 +1,5 @@
 import type { Repository } from "@/types";
+import { localStorageService } from '@/services';
 
 /**
  * Format a number with a 'k' suffix for thousands
@@ -52,4 +53,37 @@ export const getFilteredRepositories = (
   }
 
   return result;
+};
+
+/**
+ * Toggle star status of a repository
+ * @param repository - Repository to toggle star status for
+ * @param updateStarredRepositories - Function to update starred repositories state
+ * @param updateAllRepositories - Function to update all repositories state
+ * @returns Updated starred repositories array
+ */
+export const toggleRepositoryStar = async (
+  repository: Repository,
+  updateStarredRepositories?: (repos: Repository[]) => void,
+  updateAllRepositories?: (updater: (repos: Repository[]) => Repository[]) => void
+): Promise<Repository[]> => {
+  const isCurrentlyStarred = localStorageService.isRepositoryStarred(repository.id);
+  
+  const updatedStarredRepos = isCurrentlyStarred
+    ? localStorageService.removeStarredRepository(repository.id)
+    : localStorageService.addStarredRepository(repository);
+
+  // Update starred repositories state
+  updateStarredRepositories?.(updatedStarredRepos);
+
+  // Update all repositories state with new star status
+  updateAllRepositories?.(currentRepos =>
+    currentRepos.map(repo =>
+      repo.id === repository.id
+        ? { ...repo, isStarred: !isCurrentlyStarred }
+        : repo
+    )
+  );
+
+  return updatedStarredRepos;
 };

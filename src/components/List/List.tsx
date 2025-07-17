@@ -15,17 +15,17 @@ const List = ({
 }: ListProps) => {
   if (repositories.length === 0) {
     return (
-      <section className={styles.emptyState} aria-label="Empty state">
-        <p className={styles.emptyMessage}>{emptyMessage}</p>
+      <section className={styles.emptyState} aria-label="Empty state" data-testid="empty-state">
+        <p className={styles.emptyMessage} data-testid="empty-message">{emptyMessage}</p>
       </section>
     );
   }
 
   return (
-    <section className={styles.container} aria-label="Repository list">
-      <ul className={styles.list}>
+    <section className={styles.container} aria-label="Repository list" data-testid="repository-list">
+      <ul className={styles.list} data-testid="repositories-list">
         {repositories.map((repository) => (
-          <li key={`repository-${repository.id}`} className={styles.listItem}>
+          <li key={`repository-${repository.id}`} className={styles.listItem} data-testid={`list-item-${repository.id}`}>
             <ListItem
               repository={repository}
               onToggleStar={onToggleStar}

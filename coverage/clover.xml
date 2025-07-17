@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1752772033870" clover="3.2.0">
-  <project timestamp="1752772033870" name="All files">
+<coverage generated="1752773552800" clover="3.2.0">
+  <project timestamp="1752773552800" name="All files">
     <metrics statements="11" coveredstatements="11" conditionals="3" coveredconditionals="3" methods="2" coveredmethods="2" elements="16" coveredelements="16" complexity="0" loc="11" ncloc="11" packages="1" files="1" classes="1"/>
     <file name="api.service.ts" path="/Users/michael/github-trending-repo/src/services/api.service.ts">
       <metrics statements="11" coveredstatements="11" conditionals="3" coveredconditionals="3" methods="2" coveredmethods="2"/>

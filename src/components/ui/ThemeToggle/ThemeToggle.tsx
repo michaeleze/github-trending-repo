@@ -6,21 +6,22 @@ const ThemeToggle = () => {
   const { theme, toggleTheme } = use(ThemeContext);
 
   return (
-    <div className={styles.toggleContainer} aria-label="Theme toggle">
+    <div className={styles.toggleContainer} aria-label="Theme toggle" data-testid={`theme-toggle-${theme}`}>
       <button
         className={styles.toggleButton}
         onClick={toggleTheme}
         type="button"
         aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+        data-testid={`theme-toggle-button-${theme}`}
       >
         {theme === 'light' ? (
           // Moon icon for dark mode
-          <svg className={styles.icon} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg className={styles.icon} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" data-testid={`moon-icon-${theme}`}>
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
           </svg>
         ) : (
           // Sun icon for light mode
-          <svg className={styles.icon} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg className={styles.icon} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" data-testid={`sun-icon-${theme}`}>
             <circle cx="12" cy="12" r="5"></circle>
             <line x1="12" y1="1" x2="12" y2="3"></line>
             <line x1="12" y1="21" x2="12" y2="23"></line>

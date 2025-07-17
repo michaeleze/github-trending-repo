@@ -6,11 +6,11 @@ import type {
 import {
   useFetchRepositories,
   useStarredRepositories,
-  useToggleStar
 } from '@/hooks';
 import { RepositoriesContext } from './index';
 import { useState, useEffect } from 'react';
 import type { Repository } from '@/types';
+import { toggleRepositoryStar } from '@/utils';
 
 /**
  * Provider component for the Repositories context
@@ -40,17 +40,14 @@ export const RepositoriesProvider = ({ children }: RepositoriesProviderProps) =>
   const loading = reposLoading || starredLoading;
   const error = reposError || starredError ? 'Failed to fetch repositories. Please try again later.' : null;
 
-  // Use the toggleStar hook with the update functions
-  const { toggleStar } = useToggleStar(
-    // Update starred repositories
-    (updatedStarredRepos) => {
-      setStarredRepositories(updatedStarredRepos);
-    },
-    // Update all repositories
-    (updater) => {
-      setAllRepositories(updater(allRepositories));
-    }
-  );
+  // Toggle star function
+  const toggleStar = async (repository: Repository) => {
+    await toggleRepositoryStar(
+      repository,
+      setStarredRepositories,
+      setAllRepositories
+    );
+  };
 
 
   // Create context value

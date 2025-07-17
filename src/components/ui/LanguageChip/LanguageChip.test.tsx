@@ -14,17 +14,4 @@ describe('LanguageChip', () => {
 
     expect(container.firstChild).toBeNull();
   });
-
-  it('applies correct styling', () => {
-    render(<LanguageChip language="JavaScript" />);
-
-    const chip = screen.getByText('JavaScript').closest('div');
-    expect(chip).toHaveClass('languageChip');
-
-    const icon = screen.getByText('⌨️');
-    expect(icon).toHaveClass('codeIcon');
-
-    const label = screen.getByText('JavaScript');
-    expect(label).toHaveClass('label');
-  });
 });

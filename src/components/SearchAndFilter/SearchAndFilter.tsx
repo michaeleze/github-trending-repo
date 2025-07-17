@@ -25,11 +25,11 @@ const SearchAndFilter = ({ onSearch, onLanguageFilter, availableLanguages = [], 
   };
 
   return (
-    <form className={styles.container} onSubmit={(e) => e.preventDefault()}>
-      <fieldset className={styles.searchContainer}>
+    <form className={styles.container} onSubmit={(e) => e.preventDefault()} data-testid="search-and-filter-form">
+      <fieldset className={styles.searchContainer} data-testid="search-fieldset">
         <legend className={styles.visuallyHidden}>Search Repositories</legend>
         <label htmlFor="repository-search" className={styles.visuallyHidden}>Search repositories</label>
-        <div className={styles.searchInputWrapper}>
+        <div className={styles.searchInputWrapper} data-testid="search-input-wrapper">
           <svg
             className={styles.searchIcon}
             width="20"
@@ -39,6 +39,7 @@ const SearchAndFilter = ({ onSearch, onLanguageFilter, availableLanguages = [], 
             stroke="currentColor"
             strokeWidth="2"
             aria-hidden="true"
+            data-testid="search-icon"
           >
             <circle cx="11" cy="11" r="8"></circle>
             <path d="m21 21-4.35-4.35"></path>
@@ -51,11 +52,12 @@ const SearchAndFilter = ({ onSearch, onLanguageFilter, availableLanguages = [], 
             onChange={handleSearchChange}
             className={styles.searchInput}
             aria-label="Search repositories"
+            data-testid="search-input"
           />
         </div>
       </fieldset>
 
-      <fieldset className={styles.filterContainer}>
+      <fieldset className={styles.filterContainer} data-testid="filter-fieldset">
         <legend className={styles.visuallyHidden}>Filter by language</legend>
         <label htmlFor="language-filter" className={styles.visuallyHidden}>Filter by language</label>
         <select
@@ -64,10 +66,11 @@ const SearchAndFilter = ({ onSearch, onLanguageFilter, availableLanguages = [], 
           onChange={handleLanguageFilterChange}
           className={styles.filterSelect}
           aria-label="Filter repositories by programming language"
+          data-testid="language-filter-select"
         >
-          <option value="">All Languages</option>
+          <option value="" data-testid="all-languages-option">All Languages</option>
           {availableLanguages.map(language => (
-            <option key={language} value={language}>{language}</option>
+            <option key={language} value={language} data-testid={`language-option-${language.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}>{language}</option>
           ))}
         </select>
         <svg
@@ -79,6 +82,7 @@ const SearchAndFilter = ({ onSearch, onLanguageFilter, availableLanguages = [], 
           stroke="currentColor"
           strokeWidth="2"
           aria-hidden="true"
+          data-testid="filter-dropdown-icon"
         >
           <polyline points="6,9 12,15 18,9"></polyline>
         </svg>
